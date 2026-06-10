@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voltfold Trio — The Qi2 3-in-1 Charger That Packs Flat</title>
+<meta name="description" content="Charge your phone, watch, and earbuds at full Qi2 15W speed — then fold it to the size of a credit card stack. Voltfold Trio. Power that packs flat.">
+<style>
+  :root{
+    --bg:#0A0A0F; --panel:#13141C; --line:#23242F;
+    --text:#F5F7FA; --muted:#9CA3AF; --volt:#C8FF00; --volt-dim:#9BCC00;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.6}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  header{display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-bottom:1px solid var(--line)}
+  header img{height:36px}
+  .btn{display:inline-block;background:var(--volt);color:#0A0A0F;font-weight:800;padding:14px 32px;border-radius:10px;text-decoration:none;font-size:1.05rem;transition:transform .15s, box-shadow .15s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(200,255,0,.25)}
+  .btn.small{padding:10px 22px;font-size:.95rem}
+  .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding:80px 0 64px}
+  .hero h1{font-size:3rem;line-height:1.12;font-weight:800;letter-spacing:-.5px}
+  .hero h1 em{color:var(--volt);font-style:normal}
+  .hero p.sub{color:var(--muted);font-size:1.2rem;margin:20px 0 32px}
+  .price{margin:0 0 28px;font-size:1.3rem}
+  .price .now{color:var(--volt);font-weight:800;font-size:1.6rem}
+  .price .was{color:var(--muted);text-decoration:line-through;margin-left:10px}
+  .badges{display:flex;gap:18px;margin-top:24px;color:var(--muted);font-size:.9rem;flex-wrap:wrap}
+  .badges span::before{content:"✓ ";color:var(--volt)}
+  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:48px 0}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:28px}
+  .card h3{font-size:1.1rem;margin-bottom:8px}
+  .card h3 span{color:var(--volt);margin-right:8px}
+  .card p{color:var(--muted);font-size:.95rem}
+  section.band{border-top:1px solid var(--line);padding:64px 0}
+  h2{font-size:2rem;font-weight:800;margin-bottom:28px;letter-spacing:-.3px}
+  h2 em{color:var(--volt);font-style:normal}
+  .specs{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 40px;color:var(--muted)}
+  .specs div{display:flex;justify-content:space-between;border-bottom:1px dashed var(--line);padding:10px 0}
+  .specs div b{color:var(--text);font-weight:600}
+  .faq details{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 22px;margin-bottom:12px}
+  .faq summary{cursor:pointer;font-weight:600}
+  .faq p{color:var(--muted);margin-top:10px}
+  .cta-final{text-align:center;padding:72px 0}
+  footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-size:.85rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  footer a{color:var(--muted);margin-left:18px;text-decoration:none}
+  footer a:hover{color:var(--volt)}
+  .product-art{width:100%;height:auto}
+  @media(max-width:820px){
+    .hero{grid-template-columns:1fr;padding:48px 0}
+    .hero h1{font-size:2.2rem}
+    .features{grid-template-columns:1fr}
+    .specs{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="logo.svg" alt="Voltfold">
+    <a class="btn small" href="#buy">Get the Trio</a>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h1>Three devices.<br>One charger.<br><em>Folds flat.</em></h1>
+      <p class="sub">The Voltfold Trio charges your phone, watch, and earbuds at full Qi2 15W speed — then folds to the size of a credit-card stack. Your desk stays clean. Your bag stays light.</p>
+      <p class="price"><span class="now">$39.99</span><span class="was">$59.99</span> &nbsp;launch price</p>
+      <a class="btn" href="#buy" id="buy">Get Yours — Free Shipping</a>
+      <div class="badges">
+        <span>Qi2 certified 15W</span>
+        <span>30-day returns</span>
+        <span>1-year warranty</span>
+      </div>
+    </div>
+    <div>
+      <!-- Stylized product illustration: 3-panel folding charger -->
+      <svg class="product-art" viewBox="0 0 420 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Voltfold Trio 3-in-1 folding charger">
+        <defs>
+          <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#1B1D27"/><stop offset="1" stop-color="#12131A"/>
+          </linearGradient>
+          <radialGradient id="glow" cx=".5" cy=".5" r=".5">
+            <stop offset="0" stop-color="#C8FF00" stop-opacity=".55"/><stop offset="1" stop-color="#C8FF00" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <ellipse cx="210" cy="320" rx="170" ry="18" fill="#000" opacity=".45"/>
+        <!-- left panel (watch) -->
+        <g transform="rotate(-14 110 220)">
+          <rect x="50" y="140" width="120" height="170" rx="16" fill="url(#panel)" stroke="#2A2C38"/>
+          <circle cx="110" cy="225" r="34" fill="none" stroke="#C8FF00" stroke-width="2.5" opacity=".9"/>
+          <circle cx="110" cy="225" r="22" fill="url(#glow)"/>
+        </g>
+        <!-- center panel (phone) -->
+        <rect x="150" y="110" width="120" height="200" rx="16" fill="url(#panel)" stroke="#2A2C38"/>
+        <circle cx="210" cy="210" r="46" fill="none" stroke="#C8FF00" stroke-width="2.5"/>
+        <circle cx="210" cy="210" r="30" fill="url(#glow)"/>
+        <path d="M210 190 L200 214 L209 214 L204 232 L222 206 L211 206 Z" fill="#C8FF00"/>
+        <!-- right panel (earbuds) -->
+        <g transform="rotate(14 310 220)">
+          <rect x="250" y="140" width="120" height="170" rx="16" fill="url(#panel)" stroke="#2A2C38"/>
+          <rect x="285" y="200" width="50" height="50" rx="12" fill="none" stroke="#C8FF00" stroke-width="2.5" opacity=".9"/>
+          <rect x="295" y="210" width="30" height="30" rx="8" fill="url(#glow)"/>
+        </g>
+        <text x="210" y="350" text-anchor="middle" fill="#9CA3AF" font-family="Segoe UI, sans-serif" font-size="13">Open: full charging station &nbsp;·&nbsp; Closed: 9mm thin</text>
+      </svg>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="card"><h3><span>⚡</span>Full-speed Qi2 — 15W</h3><p>Not the 5W trickle most 3-in-1s give you. Magnetic alignment locks your phone onto the coil for the fastest wireless charge your phone supports.</p></div>
+    <div class="card"><h3><span>📐</span>Folds to 9mm</h3><p>Desk station by day, travel charger by night. Folds flat in one motion and weighs less than your sunglasses case. One USB-C cable runs everything.</p></div>
+    <div class="card"><h3><span>🌙</span>Charges all three, every night</h3><p>Phone, watch, and earbuds — one outlet instead of three. Wake up to 100% on everything, with zero cable spaghetti on your nightstand.</p></div>
+  </section>
+
+  <section class="band">
+    <h2>Built for <em>desks that travel</em></h2>
+    <div class="specs">
+      <div><b>Phone charging</b><span>Qi2 magnetic, 15W max</span></div>
+      <div><b>Watch charging</b><span>5W fast-charge puck</span></div>
+      <div><b>Earbuds charging</b><span>5W Qi pad</span></div>
+      <div><b>Folded size</b><span>104 × 70 × 9 mm</span></div>
+      <div><b>Weight</b><span>168 g</span></div>
+      <div><b>Input</b><span>USB-C, 30W adapter included</span></div>
+      <div><b>Compatibility</b><span>iPhone 12+, Qi2 Android, AirPods, Galaxy Buds</span></div>
+      <div><b>Materials</b><span>Vegan leather + aluminum hinge</span></div>
+    </div>
+  </section>
+
+  <section class="band faq">
+    <h2>Questions, <em>answered</em></h2>
+    <details><summary>Will it charge my Android phone?</summary><p>Yes — any phone with Qi or Qi2 wireless charging works. Qi2 phones (and iPhone 12 or newer) get the full 15W magnetic experience.</p></details>
+    <details><summary>Does it work with my watch?</summary><p>The included puck supports Apple Watch (all models). A Galaxy Watch version is coming — join the email list to get notified.</p></details>
+    <details><summary>What's in the box?</summary><p>Voltfold Trio, 30W USB-C wall adapter, 1m braided USB-C cable, travel pouch.</p></details>
+    <details><summary>Shipping and returns?</summary><p>Free tracked shipping in the US (5–9 business days). 30-day no-questions returns and a 1-year warranty.</p></details>
+  </section>
+
+  <section class="cta-final">
+    <h2>Stop packing three chargers.</h2>
+    <a class="btn" href="#buy">Get the Voltfold Trio — $39.99</a>
+    <p style="color:var(--muted);margin-top:14px;font-size:.9rem">30-day returns · 1-year warranty · Free US shipping</p>
+  </section>
+
+  <footer>
+    <span>© 2026 Voltfold. All rights reserved.</span>
+    <span>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="refunds.html">Refunds</a>
+      <a href="mailto:hello@voltfold.com">Contact</a>
+    </span>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rachel Ramdeo · RDH Dental Consultancy</title>
+<meta name="description" content="Premium, results-first consulting for dental practices — start-ups, hygiene and assisting coaching, and insurance and front-office systems. 17+ years of clinical expertise.">
+</head>
+<body>
+<style>
+  :root{
+    --ink:#0B222C;
+    --ink-2:#10303C;
+    --ink-3:#153A47;
+    --porcelain:#F6F2EA;
+    --porcelain-2:#EFE9DC;
+    --gold:#C79A3C;
+    --gold-bright:#E8C476;
+    --gold-deep:#9C7526;
+    --text-on-dark:rgba(246,242,234,.82);
+    --text-mute-dark:rgba(246,242,234,.56);
+    --text-on-light:#28454F;
+    --text-mute-light:#5E747C;
+    --line-dark:rgba(246,242,234,.14);
+    --line-light:rgba(11,34,44,.12);
+    --serif:"Didot","Bodoni MT","Playfair Display","Georgia Pro",Georgia,serif;
+    --sans:"Avenir Next","Avenir","Segoe UI","Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--ink);color:var(--text-on-dark);
+    font-family:var(--sans);font-size:16px;line-height:1.7;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  img{max-width:100%}
+  a{color:inherit}
+  .wrap{max-width:1140px;margin-inline:auto;padding-inline:clamp(20px,4vw,40px)}
+
+  /* ---------- reveal system (JS adds .anim to <html>) ---------- */
+  html.anim [data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1)}
+  html.anim [data-reveal].in{opacity:1;transform:none}
+  html.anim [data-d="2"]{transition-delay:.12s}
+  html.anim [data-d="3"]{transition-delay:.24s}
+  html.anim [data-d="4"]{transition-delay:.36s}
+  html.anim [data-d="5"]{transition-delay:.48s}
+  @media (prefers-reduced-motion:reduce){
+    html.anim [data-reveal]{opacity:1;transform:none;transition:none}
+    .marquee-track{animation:none !important}
+    .orb{animation:none !important}
+    html{scroll-behavior:auto}
+  }
+
+  /* ---------- nav ---------- */
+  .nav{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(11,34,44,.72);
+    -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line-dark);transition:box-shadow .3s ease,background .3s ease}
+  .nav.scrolled{background:rgba(11,34,44,.92);box-shadow:0 18px 40px rgba(0,0,0,.35)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:14px}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .mark{width:44px;height:44px;border-radius:50%;flex:none;display:grid;place-items:center;
+    font-family:var(--serif);font-size:22px;color:var(--gold-bright);
+    background:radial-gradient(circle at 32% 28%,var(--ink-3),var(--ink));
+    border:1px solid var(--gold);box-shadow:0 0 0 3px rgba(199,154,60,.16)}
+  .brand-name{font-family:var(--serif);font-size:19px;color:var(--porcelain);line-height:1.1}
+  .brand-sub{font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-bright);opacity:.9}
+  .menu{display:flex;align-items:center;gap:30px}
+  .menu a{font-size:13.5px;font-weight:500;letter-spacing:.03em;text-decoration:none;color:var(--text-on-dark);transition:color .25s ease}
+  .menu a:hover,.menu a:focus-visible{color:var(--gold-bright)}
+  .btn{display:inline-block;border-radius:999px;text-decoration:none;font-weight:600;letter-spacing:.02em;
+    text-align:center;transition:transform .3s ease,box-shadow .3s ease,background .3s ease,color .3s ease,border-color .3s ease}
+  .btn:focus-visible{outline:2px solid var(--gold-bright);outline-offset:3px}
+  .btn-gold{background:linear-gradient(120deg,var(--gold) 0%,var(--gold-bright) 60%,var(--gold) 100%);
+    background-size:200% 100%;color:#132630;padding:15px 32px;font-size:15px}
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(199,154,60,.38);background-position:100% 0}
+  .btn-gold.sm{padding:10px 22px;font-size:13.5px}
+  .btn-ghost{border:1px solid rgba(246,242,234,.32);color:var(--porcelain);padding:14px 30px;font-size:15px;background:transparent}
+  .btn-ghost:hover{transform:translateY(-2px);border-color:var(--gold-bright);color:var(--gold-bright)}
+  .burger{display:none;flex-direction:column;gap:5px;padding:10px;background:none;border:0;cursor:pointer}
+  .burger span{display:block;width:24px;height:2px;background:var(--porcelain);border-radius:2px;transition:transform .3s ease,opacity .3s ease}
+  .nav.open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav.open .burger span:nth-child(2){opacity:0}
+  .nav.open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;padding:clamp(150px,20vh,200px) 0 clamp(70px,10vh,120px);overflow:hidden;isolation:isolate}
+  .orb{position:absolute;border-radius:50%;filter:blur(70px);z-index:-1;opacity:.75}
+  .orb-1{width:46vw;height:46vw;min-width:380px;min-height:380px;right:-12vw;top:-10vw;
+    background:radial-gradient(circle,rgba(199,154,60,.34),rgba(199,154,60,0) 65%);animation:drift 14s ease-in-out infinite alternate}
+  .orb-2{width:34vw;height:34vw;min-width:280px;min-height:280px;left:-14vw;bottom:-18vw;
+    background:radial-gradient(circle,rgba(21,58,71,.9),rgba(11,34,44,0) 70%);animation:drift 18s ease-in-out infinite alternate-reverse}
+  @keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(-4%,5%) scale(1.08)}}
+  .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(40px,6vw,72px);align-items:center}
+  .eyebrow{font-size:11.5px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-bright);margin-bottom:22px}
+  .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(42px,6.4vw,76px);line-height:1.04;
+    letter-spacing:-.01em;color:var(--porcelain);margin:0 0 26px;text-wrap:balance}
+  .hero h1 em{font-style:italic;color:var(--gold-bright)}
+  .hero-sub{max-width:34em;font-size:clamp(16px,1.4vw,18px);color:var(--text-on-dark);margin:0 0 36px}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:52px}
+  .stats{display:flex;flex-wrap:wrap;gap:clamp(26px,4vw,52px);border-top:1px solid var(--line-dark);padding-top:30px}
+  .stat b{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(28px,3vw,36px);
+    color:var(--gold-bright);line-height:1.1;font-variant-numeric:tabular-nums}
+  .stat span{font-size:12.5px;letter-spacing:.05em;color:var(--text-mute-dark)}
+
+  /* hero arch artwork (pure CSS, loads instantly on any device) */
+  .arch-stage{position:relative;display:grid;place-items:center;padding:10px}
+  .arch{width:min(100%,420px);aspect-ratio:3/4;border-radius:999px 999px 26px 26px;position:relative;overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 50% 0%,rgba(232,196,118,.22),rgba(232,196,118,0) 55%),
+      repeating-radial-gradient(140% 110% at 50% -10%,rgba(246,242,234,.05) 0 2px,transparent 2px 46px),
+      linear-gradient(180deg,var(--ink-3),var(--ink-2) 55%,var(--ink));
+    border:1px solid rgba(232,196,118,.38);
+    box-shadow:0 40px 90px rgba(0,0,0,.45),inset 0 1px 0 rgba(246,242,234,.14)}
+  .arch::after{content:"";position:absolute;inset:14px;border-radius:999px 999px 18px 18px;
+    border:1px solid rgba(232,196,118,.22)}
+  .arch-inner{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:32px}
+  .arch-r{font-family:var(--serif);font-size:clamp(96px,12vw,150px);line-height:1;color:var(--porcelain);
+    text-shadow:0 12px 40px rgba(0,0,0,.4)}
+  .arch-rule{width:56px;height:1px;background:var(--gold)}
+  .arch-cap{font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold-bright)}
+  .arch-est{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--text-mute-dark)}
+  .float-card{position:absolute;left:max(-14px,-2vw);bottom:9%;background:var(--porcelain);color:var(--ink);
+    border-radius:16px;padding:16px 20px;display:flex;align-items:center;gap:14px;box-shadow:0 26px 60px rgba(0,0,0,.45)}
+  .float-card b{font-family:var(--serif);font-size:20px;border-right:1px solid var(--line-light);padding-right:14px}
+  .float-card span{font-size:12.5px;font-weight:500;color:var(--text-mute-light);max-width:130px;line-height:1.45;display:block}
+
+  /* ---------- marquee ---------- */
+  .marquee{background:var(--gold);color:#14262f;overflow:hidden;padding:13px 0;border-block:1px solid var(--gold-deep)}
+  .marquee-track{display:flex;gap:0;width:max-content;animation:slide 26s linear infinite}
+  .marquee-track:hover{animation-play-state:paused}
+  .mq{display:flex;gap:2.4em;padding-right:2.4em;white-space:nowrap;
+    font-size:12.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase}
+  .mq i{font-style:normal;color:#5c4614}
+  @keyframes slide{to{transform:translateX(-50%)}}
+
+  /* ---------- light sections base ---------- */
+  .light{background:var(--porcelain);color:var(--text-on-light)}
+  .light .eyebrow{color:var(--gold-deep)}
+  .section{padding:clamp(72px,10vw,120px) 0}
+  .h2{font-family:var(--serif);font-weight:500;font-size:clamp(32px,4vw,48px);line-height:1.12;
+    color:var(--ink);margin:0 0 20px;text-wrap:balance}
+  .h2 em{font-style:italic;color:var(--gold-deep)}
+  .lead{font-size:clamp(16px,1.35vw,18px);color:var(--text-mute-light);max-width:44em;margin:0}
+  .center{text-align:center}
+  .center .lead{margin-inline:auto}
+
+  /* ---------- services ---------- */
+  .svc-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:52px}
+  .arrow-link{font-size:14.5px;font-weight:600;color:var(--ink);text-decoration:none;
+    border-bottom:2px solid var(--gold);padding-bottom:4px;transition:color .25s ease}
+  .arrow-link:hover{color:var(--gold-deep)}
+  .svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+  .card{background:#fff;border:1px solid rgba(11,34,44,.07);border-radius:22px;padding:clamp(28px,3vw,42px);
+    display:block;text-decoration:none;position:relative;overflow:hidden;
+    transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease}
+  .card::before{content:"";position:absolute;inset:auto 0 0 0;height:3px;
+    background:linear-gradient(90deg,var(--gold),var(--gold-bright));transform:scaleX(0);transform-origin:left;transition:transform .45s ease}
+  .card:hover{transform:translateY(-6px);box-shadow:0 28px 60px rgba(11,34,44,.14);border-color:rgba(199,154,60,.5)}
+  .card:hover::before{transform:scaleX(1)}
+  .card .num{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--gold-deep);letter-spacing:.08em;margin-bottom:16px}
+  .card h3{font-family:var(--serif);font-weight:500;font-size:clamp(22px,2.2vw,27px);color:var(--ink);margin:0 0 12px}
+  .card p{font-size:15px;line-height:1.7;color:var(--text-mute-light);margin:0 0 20px}
+  .card .go{font-size:13.5px;font-weight:600;color:var(--gold-deep)}
+
+  /* ---------- about ---------- */
+  .about{background:linear-gradient(180deg,var(--ink) 0%,var(--ink-2) 100%)}
+  .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,6vw,80px);align-items:start}
+  .about .h2{color:var(--porcelain)}
+  .about .h2 em{color:var(--gold-bright)}
+  .about p.bio{color:var(--text-on-dark);font-size:16px;margin:0 0 16px}
+  .tl{margin-top:34px;border-top:1px solid var(--line-dark)}
+  .tl-item{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid var(--line-dark)}
+  .tl-dot{width:9px;height:9px;border-radius:50%;background:var(--gold);margin-top:9px;flex:none;box-shadow:0 0 0 4px rgba(199,154,60,.15)}
+  .tl-item b{display:block;font-family:var(--serif);font-weight:500;font-size:17.5px;color:var(--porcelain)}
+  .tl-item span{font-size:14px;color:var(--text-mute-dark);line-height:1.6}
+  .quote-slab{position:sticky;top:110px;background:rgba(246,242,234,.05);border:1px solid var(--line-dark);
+    border-radius:24px;padding:clamp(28px,3vw,40px)}
+  .quote-slab .q{font-family:var(--serif);font-style:italic;font-size:clamp(21px,2.2vw,26px);line-height:1.45;color:var(--porcelain);margin:0 0 22px}
+  .quote-slab .q i{color:var(--gold-bright)}
+  .quote-slab .who{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-bright)}
+
+  /* ---------- testimonials ---------- */
+  .t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px}
+  .t-card{background:#fff;border:1px dashed rgba(156,117,38,.45);border-radius:20px;padding:32px;
+    transition:transform .35s ease,box-shadow .35s ease}
+  .t-card:hover{transform:translateY(-4px);box-shadow:0 22px 48px rgba(11,34,44,.12)}
+  .t-mark{font-family:var(--serif);font-size:52px;line-height:.6;color:var(--gold);margin-bottom:20px}
+  .t-card p{font-size:14.5px;font-style:italic;line-height:1.75;color:var(--text-mute-light);margin:0 0 22px}
+  .t-card b{display:block;font-family:var(--serif);font-weight:500;font-size:16.5px;color:var(--ink)}
+  .t-card span{font-size:12.5px;letter-spacing:.05em;color:var(--gold-deep)}
+  .t-note{margin-top:28px;text-align:center;font-size:13px;color:var(--text-mute-light)}
+  .t-note b{color:var(--gold-deep)}
+
+  /* ---------- process ---------- */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-top:52px;counter-reset:step}
+  .step{border-top:2px solid rgba(11,34,44,.14);padding-top:20px;position:relative}
+  .step::before{counter-increment:step;content:"0" counter(step);
+    font-family:var(--serif);font-style:italic;font-size:15px;color:var(--gold-deep)}
+  .step b{display:block;font-family:var(--serif);font-weight:500;font-size:20px;color:var(--ink);margin:10px 0 8px}
+  .step p{font-size:14px;line-height:1.65;color:var(--text-mute-light);margin:0}
+
+  /* ---------- FAQ ---------- */
+  .faq-list{max-width:780px;margin:52px auto 0}
+  .faq{border-bottom:1px solid rgba(11,34,44,.12)}
+  .faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;
+    background:none;border:0;cursor:pointer;text-align:left;padding:22px 4px;
+    font-family:var(--serif);font-weight:500;font-size:clamp(17px,1.8vw,21px);color:var(--ink)}
+  .faq-q:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .faq-q .ic{flex:none;width:30px;height:30px;border-radius:50%;border:1px solid rgba(11,34,44,.25);
+    display:grid;place-items:center;font-family:var(--sans);font-size:16px;color:var(--gold-deep);transition:transform .35s ease,background .3s ease}
+  .faq.open .ic{transform:rotate(45deg);background:rgba(199,154,60,.14)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.22,.61,.36,1)}
+  .faq-a p{margin:0 4px 24px;font-size:15px;line-height:1.75;color:var(--text-mute-light);max-width:62ch}
+
+  /* ---------- CTA ---------- */
+  .cta{position:relative;overflow:hidden;background:var(--ink-2);text-align:center;isolation:isolate}
+  .cta::before{content:"";position:absolute;inset:-40% -20% auto;height:120%;z-index:-1;
+    background:radial-gradient(50% 60% at 50% 0%,rgba(199,154,60,.26),transparent 70%)}
+  .cta .h2{color:var(--porcelain);font-size:clamp(38px,5.4vw,62px)}
+  .cta .h2 em{color:var(--gold-bright)}
+  .cta .lead{color:var(--text-on-dark);margin:0 auto 38px;max-width:38em}
+  .cta-row{display:flex;justify-content:center;flex-wrap:wrap;gap:14px}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--ink);border-top:1px solid var(--line-dark);padding:64px 0 0}
+  .f-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:44px;padding-bottom:52px}
+  .f-brand p{font-size:14px;color:var(--text-mute-dark);max-width:30em;margin:16px 0 0}
+  .f-head{font-size:11.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-bright);margin-bottom:18px}
+  .f-col a{display:block;font-size:14.5px;color:var(--text-on-dark);text-decoration:none;margin-bottom:11px;transition:color .25s ease}
+  .f-col a:hover{color:var(--gold-bright)}
+  .f-bottom{border-top:1px solid var(--line-dark);padding:22px 0;font-size:12.5px;color:var(--text-mute-dark)}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:960px){
+    .menu{position:absolute;top:100%;left:0;right:0;display:none;flex-direction:column;align-items:flex-start;
+      gap:20px;padding:26px clamp(20px,4vw,40px) 32px;background:var(--ink-2);border-bottom:1px solid var(--line-dark);
+      box-shadow:0 30px 50px rgba(0,0,0,.4)}
+    .nav.open .menu{display:flex}
+    .menu a{font-size:16px}
+    .burger{display:flex}
+    .hero-grid{grid-template-columns:1fr;gap:56px}
+    .arch-stage{order:-1}
+    .arch{width:min(78vw,360px)}
+    .about-grid{grid-template-columns:1fr}
+    .quote-slab{position:static}
+    .t-grid{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:620px){
+    .svc-grid{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr;gap:22px}
+    .float-card{left:8px;padding:12px 16px}
+    .stats{gap:22px}
+    .f-grid{grid-template-columns:1fr;gap:34px}
+  }
+</style>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Rachel Ramdeo RDH Dental Consultancy — home">
+      <span class="mark">R</span>
+      <span>
+        <span class="brand-name">Rachel Ramdeo</span><br>
+        <span class="brand-sub">RDH Dental Consultancy</span>
+      </span>
+    </a>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <a href="#approach">Approach</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-gold sm" href="https://calendly.com/rachelrdhllc/30min">Book a Consultation</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="wrap hero-grid">
+      <div data-reveal>
+        <p class="eyebrow">Rachel Ramdeo · Registered Dental Hygienist</p>
+        <h1>Giving you <em>control</em> over your dental practice.</h1>
+        <p class="hero-sub">Premium, results-first consulting for dental practices — whether you're opening your doors for the first time or streamlining an established office. Built on 17+ years of hands-on clinical and operational experience.</p>
+        <div class="hero-cta">
+          <a class="btn btn-gold" href="https://calendly.com/rachelrdhllc/30min">Book a Consultation</a>
+          <a class="btn btn-ghost" href="#services">Explore Services</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><b data-count="17" data-suffix="+">17+</b><span>Years in dentistry</span></div>
+          <div class="stat"><b data-count="4">4</b><span>Consulting pillars</span></div>
+          <div class="stat"><b data-count="100" data-suffix="%">100%</b><span>Tailored to your practice</span></div>
+        </div>
+      </div>
+      <div class="arch-stage" data-reveal data-d="2">
+        <div class="arch">
+          <div class="arch-inner">
+            <div class="arch-r">R</div>
+            <div class="arch-rule"></div>
+            <div class="arch-cap">Results-First Approach</div>
+            <div class="arch-est">est. on 17 years of chairside truth</div>
+          </div>
+        </div>
+        <div class="float-card"><b>RDH</b><span>Clinician-led, owner-focused</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <div class="mq"><span>Practice Start-Ups</span><i>◆</i><span>Dental Hygiene Coaching</span><i>◆</i><span>Dental Assisting Coaching</span><i>◆</i><span>Insurance &amp; Front Office Systems</span><i>◆</i><span>Team Training</span><i>◆</i><span>Workflow Design</span><i>◆</i></div>
+      <div class="mq"><span>Practice Start-Ups</span><i>◆</i><span>Dental Hygiene Coaching</span><i>◆</i><span>Dental Assisting Coaching</span><i>◆</i><span>Insurance &amp; Front Office Systems</span><i>◆</i><span>Team Training</span><i>◆</i><span>Workflow Design</span><i>◆</i></div>
+    </div>
+  </div>
+
+  <!-- APPROACH -->
+  <section class="light section center" id="approach">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>The approach</p>
+      <h2 class="h2" data-reveal>An RDH-led, <em>results-first</em> approach.</h2>
+      <p class="lead" data-reveal data-d="2">Whether you're refining practice operations, elevating your clinical team, or untangling dental billing and insurance, every engagement is personal and measured by outcomes. With 17+ years of hands-on clinical expertise, you get guidance that is precise, practical, and tailored to take your practice to its highest potential.</p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="light section" id="services" style="background:var(--porcelain-2)">
+    <div class="wrap">
+      <div class="svc-head">
+        <div data-reveal>
+          <p class="eyebrow">Services</p>
+          <h2 class="h2" style="margin-bottom:0">How I get it done.</h2>
+        </div>
+        <a class="arrow-link" href="https://calendly.com/rachelrdhllc/30min" data-reveal>Discuss your practice →</a>
+      </div>
+      <div class="svc-grid">
+        <a class="card" href="https://calendly.com/rachelrdhllc/30min" data-reveal>
+          <div class="num">I.</div>
+          <h3>Dental Hygiene Coaching</h3>
+          <p>Elevate your hygiene department with personalized coaching that refines clinical technique, sharpens patient education, and builds protocols that drive long-term retention.</p>
+          <span class="go">Start the conversation →</span>
+        </a>
+        <a class="card" href="https://calendly.com/rachelrdhllc/30min" data-reveal data-d="2">
+          <div class="num">II.</div>
+          <h3>Dental Assisting Coaching</h3>
+          <p>Build a skilled, confident chairside team — clinical efficiency, infection control, patient communication, and the procedural expertise behind a high-performing practice.</p>
+          <span class="go">Start the conversation →</span>
+        </a>
+        <a class="card" href="https://calendly.com/rachelrdhllc/30min" data-reveal data-d="3">
+          <div class="num">III.</div>
+          <h3>Practice Start-Ups &amp; New Systems</h3>
+          <p>From concept to opening day — credentialing, staffing, equipment selection, workflow design, and the strategic planning behind a confident, successful launch.</p>
+          <span class="go">Start the conversation →</span>
+        </a>
+        <a class="card" href="https://calendly.com/rachelrdhllc/30min" data-reveal data-d="4">
+          <div class="num">IV.</div>
+          <h3>Insurance &amp; Front Office Systems</h3>
+          <p>Streamline scheduling, patient flow, insurance verification, and claims management with front-office systems built for accuracy and professionalism.</p>
+          <span class="go">Start the conversation →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about section" id="about">
+    <div class="wrap about-grid">
+      <div data-reveal>
+        <div class="quote-slab">
+          <p class="q">"You own your practice, your time, and your future — <i>don't let it own you.</i>"</p>
+          <p class="who">Rachel Ramdeo · Founder</p>
+        </div>
+      </div>
+      <div>
+        <p class="eyebrow" data-reveal>Hey there!</p>
+        <h2 class="h2" data-reveal style="color:var(--porcelain)">I'm <em>Rachel Ramdeo</em>, RDH.</h2>
+        <p class="bio" data-reveal data-d="2">I'm a Registered Dental Hygienist with 17+ years in the dental field. I started my career as a dental assistant, and that chairside foundation still shapes everything I do — from coaching hygiene and assisting teams to designing front-office systems that actually work.</p>
+        <p class="bio" data-reveal data-d="3">Originally from Trinidad and Tobago, and a first-generation college graduate, I built my career on discipline, intention, and growth through knowledge. I bring that same standard to practices that want more control, better systems, and lasting results.</p>
+        <div class="tl" data-reveal data-d="4">
+          <div class="tl-item"><span class="tl-dot"></span><span><b>Dental Assistant</b><span>Built a strong clinical foundation chairside, across multiple specialties.</span></span></div>
+          <div class="tl-item"><span class="tl-dot"></span><span><b>Registered Dental Hygienist</b><span>Specialized in preventive care, periodontal therapy, and patient education.</span></span></div>
+          <div class="tl-item"><span class="tl-dot"></span><span><b>Senior RDH &amp; Clinical Educator</b><span>Led hygiene departments and mentored clinical teams to a higher standard.</span></span></div>
+          <div class="tl-item"><span class="tl-dot"></span><span><b>Founder · RDH Dental Consultancy</b><span>17+ years of insight, now working for practices that want results.</span></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="light section" id="testimonials">
+    <div class="wrap">
+      <div class="center">
+        <p class="eyebrow" data-reveal>Testimonials</p>
+        <h2 class="h2" data-reveal>What clients are <em>saying</em>.</h2>
+      </div>
+      <div class="t-grid">
+        <div class="t-card" data-reveal><div class="t-mark">"</div><p>[Placeholder — a real client quote about working with Rachel goes here.]</p><b>Client Name</b><span>Practice Owner · Placeholder</span></div>
+        <div class="t-card" data-reveal data-d="2"><div class="t-mark">"</div><p>[Placeholder — a real client quote about practice start-up guidance goes here.]</p><b>Client Name</b><span>Start-Up Client · Placeholder</span></div>
+        <div class="t-card" data-reveal data-d="3"><div class="t-mark">"</div><p>[Placeholder — a real client quote about team coaching results goes here.]</p><b>Client Name</b><span>Office Manager · Placeholder</span></div>
+      </div>
+      <p class="t-note" data-reveal><b>Note:</b> these three cards are clearly-marked placeholders — swap in real client quotes as they come in.</p>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="light section" id="process" style="background:var(--porcelain-2)">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>How we'll work together</p>
+      <h2 class="h2" data-reveal>A clear path, start to finish.</h2>
+      <div class="steps">
+        <div class="step" data-reveal><b>Discover</b><p>A conversation about your practice, your team, and where you want to go.</p></div>
+        <div class="step" data-reveal data-d="2"><b>Assess</b><p>A clear-eyed review of clinical flow, systems, and the numbers behind them.</p></div>
+        <div class="step" data-reveal data-d="3"><b>Implement</b><p>Hands-on coaching and systems built with your team — not just handed to them.</p></div>
+        <div class="step" data-reveal data-d="4"><b>Elevate</b><p>Measurable results, follow-through, and a practice you fully control.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="light section" id="faq">
+    <div class="wrap">
+      <div class="center">
+        <p class="eyebrow" data-reveal>Got questions?</p>
+        <h2 class="h2" data-reveal>We have <em>answers</em>.</h2>
+      </div>
+      <div class="faq-list" data-reveal>
+        <div class="faq"><button class="faq-q" aria-expanded="false">Who do you work with?<span class="ic">+</span></button><div class="faq-a"><p>Solo practitioners, group practices, office managers, and entrepreneurs opening their first practice. If you want a practice that runs with precision — clinically and operationally — we'll work well together.</p></div></div>
+        <div class="faq"><button class="faq-q" aria-expanded="false">What does an engagement look like?<span class="ic">+</span></button><div class="faq-a"><p>It starts with a 30-minute consultation. From there I assess your clinical flow, systems, and numbers, then build a tailored plan we implement together — with your team, at your pace.</p></div></div>
+        <div class="faq"><button class="faq-q" aria-expanded="false">Can you help me open a brand-new practice?<span class="ic">+</span></button><div class="faq-a"><p>Yes — start-ups are one of my four pillars. Credentialing, staffing, equipment selection, workflow design, and the strategic planning that gets you to opening day with confidence.</p></div></div>
+        <div class="faq"><button class="faq-q" aria-expanded="false">Do you work remotely or on-site?<span class="ic">+</span></button><div class="faq-a"><p>Both. Engagements can be structured remotely, on-site, or blended, depending on the scope of work and what your team needs.</p></div></div>
+        <div class="faq"><button class="faq-q" aria-expanded="false">How long does a typical engagement last?<span class="ic">+</span></button><div class="faq-a"><p>Anywhere from a focused session on one system to a multi-month engagement for a start-up or full operational overhaul. The plan is sized to the outcome, not the clock.</p></div></div>
+        <div class="faq"><button class="faq-q" aria-expanded="false">How do we get started?<span class="ic">+</span></button><div class="faq-a"><p>Book a 30-minute consultation through the "Book a Consultation" button. We'll talk about your practice, your goals, and whether we're the right fit.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta section" id="contact">
+    <div class="wrap" data-reveal>
+      <p class="eyebrow">Start the path to a stronger practice</p>
+      <h2 class="h2">Own <em>your</em> practice.</h2>
+      <p class="lead">Book a 30-minute consultation and let's talk about where your practice can go next.</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" href="https://calendly.com/rachelrdhllc/30min">Book a Consultation</a>
+        <a class="btn btn-ghost" href="#faq">Read the FAQ</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap f-grid">
+    <div class="f-brand">
+      <a class="brand" href="#top"><span class="mark">R</span>
+        <span><span class="brand-name">Rachel Ramdeo</span><br><span class="brand-sub">RDH Dental Consultancy</span></span></a>
+      <p>Elevated, results-first consulting for dental practices — start-ups, systems, and clinical teams.</p>
+    </div>
+    <div class="f-col">
+      <div class="f-head">Explore</div>
+      <a href="#approach">Approach</a><a href="#services">Services</a><a href="#about">About</a><a href="#testimonials">Testimonials</a><a href="#faq">FAQ</a>
+    </div>
+    <div class="f-col">
+      <div class="f-head">Get started</div>
+      <a href="https://calendly.com/rachelrdhllc/30min">Book a consultation</a><a href="#contact">Contact</a>
+    </div>
+  </div>
+  <div class="wrap f-bottom">© 2026 Rachel Ramdeo · RDH Dental Consultancy. All rights reserved.</div>
+</footer>
+
+<script>
+(function(){
+  var d=document, root=d.documentElement;
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* mobile menu */
+  var nav=d.getElementById('nav'), burger=d.getElementById('burger');
+  burger.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded',open?'true':'false');
+    burger.setAttribute('aria-label',open?'Close menu':'Open menu');
+  });
+  d.querySelectorAll('.menu a').forEach(function(a){
+    a.addEventListener('click',function(){nav.classList.remove('open');burger.setAttribute('aria-expanded','false');});
+  });
+
+  /* nav shadow */
+  var onScroll=function(){nav.classList.toggle('scrolled',window.scrollY>10);};
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  /* FAQ accordion (tap-friendly) */
+  d.querySelectorAll('.faq-q').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var item=btn.parentElement, ans=item.querySelector('.faq-a'), open=item.classList.toggle('open');
+      btn.setAttribute('aria-expanded',open?'true':'false');
+      ans.style.maxHeight=open?ans.scrollHeight+'px':'0px';
+    });
+  });
+
+  if(reduced) return;           /* respect reduced-motion: content stays fully visible */
+  root.classList.add('anim');
+
+  /* scroll reveals — IntersectionObserver works with touch scrolling on mobile */
+  var els=[].slice.call(d.querySelectorAll('[data-reveal]'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+    },{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(el){io.observe(el);});
+  } else { els.forEach(function(el){el.classList.add('in');}); }
+
+  /* count-up stats */
+  var animate=function(el){
+    var end=parseInt(el.getAttribute('data-count'),10)||0, suf=el.getAttribute('data-suffix')||'', t0=null, dur=1400;
+    var step=function(ts){ if(!t0)t0=ts; var p=Math.min((ts-t0)/dur,1), e=1-Math.pow(1-p,3);
+      el.textContent=Math.round(end*e)+suf; if(p<1)requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  };
+  if('IntersectionObserver' in window){
+    var io2=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ animate(en.target); io2.unobserve(en.target);} });
+    },{threshold:.4});
+    d.querySelectorAll('[data-count]').forEach(function(el){io2.observe(el);});
+  }
+})();
+</script>
+
+</body>
+</html>

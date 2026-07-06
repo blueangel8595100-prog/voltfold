@@ -46,10 +46,22 @@
   html.anim [data-d="5"]{transition-delay:.48s}
   @media (prefers-reduced-motion:reduce){
     html.anim [data-reveal]{opacity:1;transform:none;transition:none}
-    .marquee-track{animation:none !important}
-    .orb{animation:none !important}
+    *,*::before,*::after{animation:none !important}
     html{scroll-behavior:auto}
   }
+
+  /* ---------- hero entrance + ambient float ---------- */
+  @keyframes riseIn{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
+  @keyframes archIn{from{opacity:0;transform:translateY(30px) scale(.96)}to{opacity:1;transform:none}}
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+  html.anim .hero .eyebrow{animation:riseIn .8s .1s cubic-bezier(.22,.61,.36,1) both}
+  html.anim .hero h1{animation:riseIn .9s .25s cubic-bezier(.22,.61,.36,1) both}
+  html.anim .hero-sub{animation:riseIn .9s .4s cubic-bezier(.22,.61,.36,1) both}
+  html.anim .hero-cta{animation:riseIn .9s .55s cubic-bezier(.22,.61,.36,1) both}
+  html.anim .stats{animation:riseIn .9s .7s cubic-bezier(.22,.61,.36,1) both}
+  html.anim .arch-stage{animation:archIn 1.1s .35s cubic-bezier(.22,.61,.36,1) both}
+  html.anim .arch{animation:floaty 7s 2s ease-in-out infinite}
+  html.anim .float-card{animation:floaty 6s 2.6s ease-in-out infinite}
 
   /* ---------- nav ---------- */
   .nav{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(11,34,44,.72);
@@ -284,7 +296,7 @@
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
     <div class="wrap hero-grid">
-      <div data-reveal>
+      <div class="hero-left">
         <p class="eyebrow">Rachel Ramdeo · Registered Dental Hygienist</p>
         <h1>Giving you <em>control</em> over your dental practice.</h1>
         <p class="hero-sub">Premium, results-first consulting for dental practices — whether you're opening your doors for the first time or streamlining an established office. Built on 17+ years of hands-on clinical and operational experience.</p>
@@ -298,7 +310,7 @@
           <div class="stat"><b data-count="100" data-suffix="%">100%</b><span>Tailored to your practice</span></div>
         </div>
       </div>
-      <div class="arch-stage" data-reveal data-d="2">
+      <div class="arch-stage">
         <div class="arch">
           <div class="arch-inner">
             <div class="arch-r">R</div>
